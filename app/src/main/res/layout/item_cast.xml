@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="cast"
+            type="com.hitachivantara.mobilecoe.android.data.model.Cast" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="10dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/cast_avatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toTopOf="@+id/cast_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            img_avatar="@{cast.profile_path}"
+            tools:src="@drawable/default_avatar" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cast_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/sample_cast_name"
+            android:text="@{cast.name}"
+            style="@style/bodyText"
+            app:layout_constraintLeft_toLeftOf="@+id/cast_avatar"
+            app:layout_constraintRight_toRightOf="@+id/cast_avatar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cast_avatar"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

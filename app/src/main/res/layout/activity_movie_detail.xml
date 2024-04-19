@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.hitachivantara.mobilecoe.android.data.model.Movie" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".ui.movies.subInfo.MovieDetailActivity">
+
+            <FrameLayout
+                android:id="@+id/banner_holder"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.001">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="20dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/banner_img"
+                        img_poster="@{movie.backdrop_path}"
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitXY"
+                        tools:ignore="ImageContrastCheck"
+                        tools:src="@color/smoke_white" />
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="128dp"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="20dp"
+                    android:elevation="2dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_wrapper"
+                        android:layout_width="95dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="5dp"
+                        app:cardCornerRadius="16dp"
+                        tools:src="@color/sky_blue">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            img_poster="@{movie.poster_path}"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitXY"
+                            tools:ignore="ImageContrastCheck"
+                            tools:src="@color/sky_blue" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/movie_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="@{movie.title}"
+                        tools:text="@string/sample_movie_name" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="80dp"
+                    android:background="@drawable/gradient_bg"
+                    android:elevation="4dp">
+
+                    <TextView
+                        android:id="@+id/rating_overall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@{String.valueOf(movie.vote_average)}"
+                        android:textColor="#424242"
+                        app:drawableStartCompat="@drawable/star"
+                        tools:text="@string/sample_review_score" />
+                </RelativeLayout>
+
+
+            </FrameLayout>
+
+
+            <LinearLayout
+                android:id="@+id/common_info_holder"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/banner_holder">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/icon_calender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="2dp"
+                    android:src="@drawable/calendarblank"
+                    android:tint="@color/light_gray"
+                    tools:ignore="ImageContrastCheck" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_release_date"
+                    style="@style/subtitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="1dp"
+                    android:ellipsize="end"
+                    android:textAlignment="gravity"
+                    android:textColor="#9E9E9E"
+                    app:modified_date='@{movie.release_date}'
+                    tools:text="2012-29-01" />
+
+                <View
+                    android:layout_width="1dip"
+                    android:layout_height="17dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/light_gray" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/icon_clock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="2dp"
+                    android:src="@drawable/clock"
+                    android:tint="@color/light_gray"
+                    tools:ignore="ImageContrastCheck" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_duration"
+                    style="@style/subtitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="1dp"
+                    android:ellipsize="end"
+                    android:text='@{movie.original_language}'
+                    android:textColor="#9E9E9E"
+                    tools:text="120 minutes" />
+
+                <View
+                    android:layout_width="1dip"
+                    android:layout_height="17dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/light_gray" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/icon_ticket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ticket"
+                        android:tint="@color/light_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ImageContrastCheck" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_genres"
+                        style="@style/subtitleText"
+                        stringify="@{movie.genres}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="1dp"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:textColor="#9E9E9E"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/icon_ticket"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Action, Horror" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </LinearLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                style="@style/tabLayoutStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/tab_holder"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/common_info_holder"
+                app:layout_constraintVertical_bias="0.038">
+
+            </com.google.android.material.tabs.TabLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tabs" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/main_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="viewPager, tabs, common_info_holder, banner_holder  " />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/black"
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

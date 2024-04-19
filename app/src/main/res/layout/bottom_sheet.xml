@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/bottom_sheet"
+    android:background="@drawable/bottom_sheet_bg"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:gravity="center|bottom">
+
+    <ImageView
+        android:id="@+id/close_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:src="@drawable/ic_close_24"
+        />
+
+    <TextView
+        android:text="@string/rate_this_movie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:id="@+id/rate_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:textSize="32sp"
+        tool:text="5.0"
+        />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/rate_slider"
+        android:layout_width="278dp"
+        android:layout_height="32dp"
+        android:contentDescription="@string/fetch_data"
+        android:value="6"
+        android:valueFrom="0"
+        android:valueTo="10"
+        app:thumbColor="@color/smoke_white"
+        app:thumbStrokeColor="@color/orange"
+        app:thumbStrokeWidth="1dp"
+        app:tickColorActive="@color/orange"
+        app:tickColorInactive="@color/sky_blue"
+        app:trackColorActive="@color/orange" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/submit_button"
+        style="@style/Button.Submit"
+        android:layout_width="220dp"
+        android:layout_height="56dp"
+        android:background="@drawable/submit_button_bg"
+        android:text="@string/ok"
+        android:textColor="#212121" />
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">24dp</dimen>
+    <dimen name="activity_vertical_margin">24dp</dimen>
+    <dimen name="image_detail_margin">29dp</dimen>
+    <dimen name="subtitle_margin">51dp</dimen>
+    <dimen name="top_detail_title_gap">3dp</dimen>
+    <dimen name="nav_margin">32dp</dimen>
+    <dimen name="image_object_margin">32dp</dimen>
+    <dimen name="image_object_text">4dp</dimen>
+    <dimen name="body_with_icon_margin">3dp</dimen>
+</resources>
